@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/praxis/Term%202/MLOP/Abalone_deploy/mlruns/0/a16af337234c4e708c303122ef875e17/artifacts
+end_time: 1705328570839
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a16af337234c4e708c303122ef875e17
+run_name: legendary-goat-312
+run_uuid: a16af337234c4e708c303122ef875e17
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705328546415
+status: 3
+tags: []
+user_id: moazi

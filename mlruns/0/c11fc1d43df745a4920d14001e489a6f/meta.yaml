@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/praxis/Term%202/MLOP/Abalone_deploy/mlruns/0/c11fc1d43df745a4920d14001e489a6f/artifacts
+end_time: 1705328660308
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c11fc1d43df745a4920d14001e489a6f
+run_name: loud-mole-335
+run_uuid: c11fc1d43df745a4920d14001e489a6f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705328654717
+status: 3
+tags: []
+user_id: moazi
