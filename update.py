@@ -137,29 +137,6 @@ y_test_pred = model.predict(X_test)
 mse_train = mean_squared_error(y_train, y_train_pred)
 mse_test = mean_squared_error(y_test, y_test_pred)
 
-# Log the model using MLflow
-with mlflow.start_run(run_name="update"):
-    # Log parameters
-    mlflow.log_param("model_type", selected_model)
-    if selected_model == "Decision Tree":
-        mlflow.log_param("max_depth", Hyper_parameter_tuning)
-    elif selected_model == "AdaBoost":
-        mlflow.log_param("base_max_depth", Hyper_parameter_tuning)
-        mlflow.log_param("n_estimators", n_estimator)
-        mlflow.log_param("learning_rate", learning_rate)
-
-    # Log metrics
-    mlflow.log_metric("training_mse", mse_train)
-    mlflow.log_metric("testing_mse", mse_test)
-
-    # Save the model as a pickle file
-    model_path = "model.pkl"
-    with open(model_path, 'wb') as file:
-        pickle.dump(model, file)
-
-    # Log the model
-    mlflow.sklearn.log_model(model, "model")
-
 st.subheader(f"{selected_model} Model Performance")
 st.write(f"Training MSE: {mse_train:.4f}")
 st.write(f"Testing MSE: {mse_test:.4f}")
@@ -210,3 +187,30 @@ st.write({feature1: value1, feature2: value2, feature3: value3, feature4: value4
 st.write("Predicted Age:")
 st.write(predicted_age[0])
 
+# Log the model using MLflow
+with mlflow.start_run(run_name="update"):
+   # Log the model using MLflow
+    
+    # Log parameters
+    mlflow.log_param("model_type", selected_model)
+    if Hyper_parameter_tuning is not None:
+        mlflow.log_param("max_depth", Hyper_parameter_tuning)
+    if selected_model == "AdaBoost":
+        mlflow.log_param("n_estimators", n_estimator)
+        mlflow.log_param("learning_rate", learning_rate)
+
+    # Log other feature values
+    mlflow.log_param("feature1", value1)
+    # Log other features
+
+    # Log metrics
+    mlflow.log_metric("training_mse", mse_train)
+    mlflow.log_metric("testing_mse", mse_test)
+
+    # Save the model as a pickle file
+    model_path = "model.pkl"
+    with open(model_path, 'wb') as file:
+        pickle.dump(model, file)
+
+    # Log the model
+    mlflow.sklearn.log_model(model, "model")
