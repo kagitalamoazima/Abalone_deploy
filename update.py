@@ -139,22 +139,43 @@ st.write(f"Testing MSE: {mse_test:.4f}")
 
 st.subheader("Predicting the Age")
 
-st.sidebar.write("Select features for prediction of Age")
+st.sidebar.write("Select feature values for prediction of Age")
 # Select boxes for choosing features
-feature1 = st.sidebar.selectbox("Select Feature 1", x.columns)
+feature1 = st.sidebar.selectbox("Select Feature 1", x["Sex_I"])
 value1 = st.sidebar.slider(f"Select Value for {feature1}", 0.01, 1.0, 0.5)
 
-feature2 = st.sidebar.selectbox("Select Feature 2", x.columns)
+feature2 = st.sidebar.selectbox("Select Feature 2", x["Length"])
 value2 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
 
+feature3 = st.sidebar.selectbox("Select Feature 2", x["Diameter"])
+value3 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
+
+feature4 = st.sidebar.selectbox("Select Feature 2", x["Height"])
+value4 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
+
+feature5 = st.sidebar.selectbox("Select Feature 2", x["Whole_weight"])
+value5 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
+
+feature6 = st.sidebar.selectbox("Select Feature 2", x["Shucked_weight"])
+value6 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
+
+feature7 = st.sidebar.selectbox("Select Feature 2", x["Viscera_weight"])
+value7 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
+
+feature8 = st.sidebar.selectbox("Select Feature 2", x["Rings"])
+value8 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
+
+feature9 = st.sidebar.selectbox("Select Feature 1", x["Sex_M"])
+value9 = st.sidebar.slider(f"Select Value for {feature1}", 0.01, 1.0, 0.5)
+
 # Create an input array for prediction
-input_features = [[value1, value2]]
+input_features = [[value1, value2,value3,value4,value5,value6,value7,value8,value9]]
 
 predicted_age = model.predict(input_features)
 
 # Display the input features and predicted age
 st.subheader("Input Features and Predicted Age:")
 st.write("Selected Features and Values:")
-st.write({feature1: value1, feature2: value2})
+st.write({feature1: value1, feature2: value2,feature3:value3,feature4:value4,feature5:value5,feature6:value6,feature7:value7,feature8:value8,feature9:value9})
 st.write("Predicted Age:")
 st.write(predicted_age[0])
