@@ -140,11 +140,11 @@ st.write(f"Testing MSE: {mse_test:.4f}")
 st.subheader("Predicting the Age")
 
 # Select boxes for choosing features
-feature1 = st.sidebox.selectbox("Select Feature 1", x.columns)
-value1 = st.sidebox.slider(f"Select Value for {feature1}", 0.01, 1.0, 0.5)
+feature1 = st.sidebar.selectbox("Select Feature 1", x.columns)
+value1 = st.sidebar.slider(f"Select Value for {feature1}", 0.01, 1.0, 0.5)
 
-feature2 = st.sidebox.selectbox("Select Feature 2", x.columns)
-value2 = st.sidebox.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
+feature2 = st.sidebar.selectbox("Select Feature 2", x.columns)
+value2 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
 
 # Create an input array for prediction
 input_features = [[value1, value2]]
