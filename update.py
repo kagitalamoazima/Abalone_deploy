@@ -187,38 +187,42 @@ st.write({feature1: value1, feature2: value2, feature3: value3, feature4: value4
 st.write("Predicted Age:")
 st.write(predicted_age[0])
 
-# Log the model using MLflow
-with mlflow.start_run(run_name="update"):
-   # Log the model using MLflow
-    
-    # Log parameters
-    mlflow.log_param("model_type", selected_model)
-    if Hyper_parameter_tuning is not None:
-        mlflow.log_param("max_depth", Hyper_parameter_tuning)
-    if selected_model == "AdaBoost":
-        mlflow.log_param("max_depth", Hyper_parameter_tuning)
-        mlflow.log_param("n_estimators", n_estimator)
-        mlflow.log_param("learning_rate", learning_rate)
 
-    # Log other feature values
-    mlflow.log_param("feature1", value1)
-    mlflow.log_param("feature2", value2)
-    mlflow.log_param("feature3", value3)
-    mlflow.log_param("feature4", value4)
-    mlflow.log_param("feature5", value5)
-    mlflow.log_param("feature6", value6)
-    mlflow.log_param("feature7", value7)
-    mlflow.log_param("feature8", value8)
-    mlflow.log_param("feature9", value9)
 
-    # Log metrics
-    mlflow.log_metric("training_mse", mse_train)
-    mlflow.log_metric("testing_mse", mse_test)
+if st.sidebar.button("Train Model"):
+    # Perform model training using the selected hyperparameters
+    # Log the model using MLflow
+    with mlflow.start_run(run_name="update"):
+    # Log the model using MLflow
+        
+        # Log parameters
+        mlflow.log_param("model_type", selected_model)
+        if Hyper_parameter_tuning is not None:
+            mlflow.log_param("max_depth", Hyper_parameter_tuning)
+        if selected_model == "AdaBoost":
+            mlflow.log_param("max_depth", Hyper_parameter_tuning)
+            mlflow.log_param("n_estimators", n_estimator)
+            mlflow.log_param("learning_rate", learning_rate)
 
-    # Save the model as a pickle file
-    model_path = "model.pkl"
-    with open(model_path, 'wb') as file:
-        pickle.dump(model, file)
+        # Log other feature values
+        mlflow.log_param("feature1", value1)
+        mlflow.log_param("feature2", value2)
+        mlflow.log_param("feature3", value3)
+        mlflow.log_param("feature4", value4)
+        mlflow.log_param("feature5", value5)
+        mlflow.log_param("feature6", value6)
+        mlflow.log_param("feature7", value7)
+        mlflow.log_param("feature8", value8)
+        mlflow.log_param("feature9", value9)
 
-    # Log the model
-    mlflow.sklearn.log_model(model, "model")
+        # Log metrics
+        mlflow.log_metric("training_mse", mse_train)
+        mlflow.log_metric("testing_mse", mse_test)
+
+        # Save the model as a pickle file
+        model_path = "model.pkl"
+        with open(model_path, 'wb') as file:
+            pickle.dump(model, file)
+
+        # Log the model
+        mlflow.sklearn.log_model(model, "model")
