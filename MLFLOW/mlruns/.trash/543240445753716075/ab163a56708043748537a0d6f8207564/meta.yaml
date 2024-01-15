@@ -1,0 +1,16 @@
+artifact_uri: file://d:\praxis\Term 2\MLOP\MLFLOW\mlruns/543240445753716075/ab163a56708043748537a0d6f8207564/artifacts
+deleted_time: 1702279313778
+end_time: 1702270080075
+entry_point_name: ''
+experiment_id: '543240445753716075'
+lifecycle_stage: deleted
+run_id: ab163a56708043748537a0d6f8207564
+run_name: secretive-stag-769
+run_uuid: ab163a56708043748537a0d6f8207564
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702270079846
+status: 3
+tags: []
+user_id: moazi

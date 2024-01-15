@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/praxis/Term%202/MLOP/MLFLOW/mlruns/734078547406037714/b21a55c56e814479bd5ff6dd679bf326/artifacts
+end_time: 1702279885624
+entry_point_name: ''
+experiment_id: '734078547406037714'
+lifecycle_stage: active
+run_id: b21a55c56e814479bd5ff6dd679bf326
+run_name: alpha_0.05_l1_ratio_0.01
+run_uuid: b21a55c56e814479bd5ff6dd679bf326
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702279879586
+status: 3
+tags: []
+user_id: moazi

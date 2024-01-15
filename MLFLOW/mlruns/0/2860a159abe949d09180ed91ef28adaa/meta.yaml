@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/praxis/Term%202/MLOP/MLFLOW/mlruns/0/2860a159abe949d09180ed91ef28adaa/artifacts
+end_time: 1701758484806
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2860a159abe949d09180ed91ef28adaa
+run_name: adaptable-pig-68
+run_uuid: 2860a159abe949d09180ed91ef28adaa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701758484582
+status: 4
+tags: []
+user_id: moazi

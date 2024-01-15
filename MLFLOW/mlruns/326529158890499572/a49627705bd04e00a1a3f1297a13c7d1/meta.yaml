@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/326529158890499572/a49627705bd04e00a1a3f1297a13c7d1/artifacts
+end_time: 1702279321646
+entry_point_name: ''
+experiment_id: '326529158890499572'
+lifecycle_stage: active
+run_id: a49627705bd04e00a1a3f1297a13c7d1
+run_name: max_depth_3
+run_uuid: a49627705bd04e00a1a3f1297a13c7d1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702279318171
+status: 3
+tags: []
+user_id: moazi

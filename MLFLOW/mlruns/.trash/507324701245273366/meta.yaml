@@ -1,0 +1,7 @@
+artifact_location: mlflow-artifacts:/507324701245273366
+creation_time: 1702269900310
+experiment_id: '507324701245273366'
+last_update_time: 1702279318168
+lifecycle_stage: deleted
+name: iris_experiment
+tags: {}

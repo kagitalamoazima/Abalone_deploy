@@ -1,0 +1,7 @@
+artifact_location: file:///D:/praxis/Term%202/MLOP/MLFLOW/mlruns/557118459823207923
+creation_time: 1701782686673
+experiment_id: '557118459823207923'
+last_update_time: 1702279321334
+lifecycle_stage: deleted
+name: mlflow_streamlit_experiment
+tags: {}

@@ -1,0 +1,16 @@
+artifact_uri: file://d:\praxis\Term 2\MLOP\MLFLOW\mlruns/543240445753716075/0aeff97376144e9b8c36e653bd616170/artifacts
+deleted_time: 1702279313778
+end_time: 1702270103709
+entry_point_name: ''
+experiment_id: '543240445753716075'
+lifecycle_stage: deleted
+run_id: 0aeff97376144e9b8c36e653bd616170
+run_name: spiffy-loon-17
+run_uuid: 0aeff97376144e9b8c36e653bd616170
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702270103548
+status: 3
+tags: []
+user_id: moazi

@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/326529158890499572
+creation_time: 1702279307799
+experiment_id: '326529158890499572'
+last_update_time: 1702279307799
+lifecycle_stage: active
+name: Decision_Tree_Classifier

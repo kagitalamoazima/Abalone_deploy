@@ -1,0 +1,16 @@
+artifact_uri: file://d:\praxis\Term 2\MLOP\MLFLOW\mlruns/543240445753716075/8bb22bd526cf4d3c9c93d5cdecdd59dc/artifacts
+deleted_time: 1702279313778
+end_time: 1702270222122
+entry_point_name: ''
+experiment_id: '543240445753716075'
+lifecycle_stage: deleted
+run_id: 8bb22bd526cf4d3c9c93d5cdecdd59dc
+run_name: selective-wren-254
+run_uuid: 8bb22bd526cf4d3c9c93d5cdecdd59dc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702270221586
+status: 3
+tags: []
+user_id: moazi

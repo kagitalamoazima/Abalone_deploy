@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/544202042453515886/49d3df1887914fedbd6f7cb15876114e/artifacts
+end_time: 1702279338847
+entry_point_name: ''
+experiment_id: '544202042453515886'
+lifecycle_stage: active
+run_id: 49d3df1887914fedbd6f7cb15876114e
+run_name: SLR_Model
+run_uuid: 49d3df1887914fedbd6f7cb15876114e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702279334062
+status: 3
+tags: []
+user_id: moazi
