@@ -141,10 +141,6 @@ st.subheader("Predicting the Age")
 
 st.sidebar.write("Select feature values for prediction of Age")
 # Select boxes for choosing features
-# ...
-
-# Sidebar UI for feature selection
-st.subheader("Predicting the Age")
 
 # Select boxes and sliders for choosing features
 feature1 = "Sex_I"
