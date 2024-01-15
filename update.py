@@ -139,6 +139,7 @@ st.write(f"Testing MSE: {mse_test:.4f}")
 
 st.subheader("Predicting the Age")
 
+st.sidebar.write("Select features for prediction of Age")
 # Select boxes for choosing features
 feature1 = st.sidebar.selectbox("Select Feature 1", x.columns)
 value1 = st.sidebar.slider(f"Select Value for {feature1}", 0.01, 1.0, 0.5)
