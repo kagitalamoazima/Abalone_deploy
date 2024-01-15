@@ -15,7 +15,7 @@ df = pd.read_csv("abalonedata.csv")
 # Streamlit app
 st.title("Interactive Data Visualization")
 
-
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Dropdown for selecting plot type
 plot_type = st.sidebar.selectbox("Select Plot Type", ["Histogram", "Boxplot", "Scatter Plot", "Pie Chart"])
