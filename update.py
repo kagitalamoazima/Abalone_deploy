@@ -148,7 +148,7 @@ st.subheader("Predicting the Age")
 
 # Select boxes and sliders for choosing features
 feature1 = "Sex_I"
-value1 = st.sidebar.slider(f"Select Value for {feature1}", 0.01, 1.0, 0.5)
+value1 = st.sidebar.slider(f"Select Value for {feature1}",0,1)
 
 feature2 = "Length"
 value2 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
@@ -172,7 +172,7 @@ feature8 = "Rings"
 value8 = st.sidebar.slider(f"Select Value for {feature8}", 0.01, 1.0, 0.5)
 
 feature9 = "Sex_M"
-value9 = st.sidebar.slider(f"Select Value for {feature9}", 0.01, 1.0, 0.5)
+value9 = st.sidebar.slider(f"Select Value for {feature9}", 0,1)
 
 # Create an input array for prediction
 input_features = [[value1, value2, value3, value4, value5, value6, value7, value8, value9]]
