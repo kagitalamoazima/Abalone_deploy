@@ -15,7 +15,7 @@ st.subheader("Dataset Preview:")
 st.write(df.head()) 
 
 st.subheader("About Dataset:")
-st.write('''1.Sex: The gender of the abalone (M for male, F for female, I for infant)
+st.write('''1.Sex: The gender of the abalone (M for male, F for female, I for infant).
 
 2.Length: The length of the abalone (in mm).
 
@@ -139,3 +139,24 @@ st.write(f"Testing MSE: {mse_test:.4f}")
 
 st.subheader("Predicting the Age")
 
+# Create input widgets for selecting feature columns and their values
+feature_columns = st.sidebar.multiselect("Select Feature Columns", x.columns)
+
+# Select boxes for choosing features
+feature1 = st.selectbox("Select Feature 1", x.columns)
+value1 = st.slider(f"Select Value for {feature1}", 0.01, 1.0, 0.5)
+
+feature2 = st.selectbox("Select Feature 2", x.columns)
+value2 = st.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
+
+# Create an input array for prediction
+input_features = [[value1, value2]]
+
+predicted_age = model.predict(input_features)
+
+# Display the input features and predicted age
+st.subheader("Input Features and Predicted Age:")
+st.write("Selected Features and Values:")
+st.write({feature1: value1, feature2: value2})
+st.write("Predicted Age:")
+st.write(predicted_age[0])
