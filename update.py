@@ -196,12 +196,20 @@ with mlflow.start_run(run_name="update"):
     if Hyper_parameter_tuning is not None:
         mlflow.log_param("max_depth", Hyper_parameter_tuning)
     if selected_model == "AdaBoost":
+        mlflow.log_param("max_depth", Hyper_parameter_tuning)
         mlflow.log_param("n_estimators", n_estimator)
         mlflow.log_param("learning_rate", learning_rate)
 
     # Log other feature values
     mlflow.log_param("feature1", value1)
-    # Log other features
+    mlflow.log_param("feature2", value2)
+    mlflow.log_param("feature3", value3)
+    mlflow.log_param("feature4", value4)
+    mlflow.log_param("feature5", value5)
+    mlflow.log_param("feature6", value6)
+    mlflow.log_param("feature7", value7)
+    mlflow.log_param("feature8", value8)
+    mlflow.log_param("feature9", value9)
 
     # Log metrics
     mlflow.log_metric("training_mse", mse_train)

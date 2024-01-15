@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/praxis/Term%202/MLOP/Abalone_deploy/mlruns/0/cbbde2cfa2354ed79c9dca7abf0e2c8d/artifacts
+end_time: 1705333836329
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cbbde2cfa2354ed79c9dca7abf0e2c8d
+run_name: update
+run_uuid: cbbde2cfa2354ed79c9dca7abf0e2c8d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705333824699
+status: 3
+tags: []
+user_id: moazi
