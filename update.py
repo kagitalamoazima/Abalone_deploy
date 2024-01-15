@@ -120,5 +120,3 @@ st.write(f"Testing MSE: {mse_test:.4f}")
 
 st.subheader("Predicting the Age")
 
-feature1 = st.sidebar.selectbox("Feature 1", min_value=0, max_value=100, value=50)
-feature2 = st.sidebar.selectbox("Feature 2", min_value=0, max_value=100, value=50)
