@@ -9,10 +9,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.metrics import mean_squared_error
 
-import os
-
-os.environ["NUMEXPR_MAX_THREADS"] = "8"
-
 df = pd.read_csv("abalonedata.csv")
 
 
