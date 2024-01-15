@@ -11,6 +11,8 @@ from sklearn.metrics import mean_squared_error
 
 df = pd.read_csv("abalonedata.csv")
 
+st.subheader("Dataset Preview:")
+st.write(df.head()) 
 
 # Streamlit app
 st.title("Interactive Data Visualization")
@@ -117,3 +119,6 @@ st.write(f"Training MSE: {mse_train:.4f}")
 st.write(f"Testing MSE: {mse_test:.4f}")
 
 st.subheader("Predicting the Age")
+
+feature1 = st.sidebar.selectbox("Feature 1", min_value=0, max_value=100, value=50)
+feature2 = st.sidebar.selectbox("Feature 2", min_value=0, max_value=100, value=50)
