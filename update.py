@@ -17,21 +17,21 @@ st.write(df.head())
 st.subheader("About Dataset:")
 st.write('''1.Sex: The gender of the abalone (M for male, F for female, I for infant)
 
-         2.Length: The length of the abalone (in mm).
+2.Length: The length of the abalone (in mm).
 
-         3.Diameter: The diameter of the abalone (in mm).
+3.Diameter: The diameter of the abalone (in mm).
 
-         4.Height: The height of the abalone (in mm).
+4.Height: The height of the abalone (in mm).
 
-         5.Whole_weight: Whole weight of the abalone (in grams).
+5.Whole_weight: Whole weight of the abalone (in grams).
 
-         6.Shucked_weight: Weight of the abalone's meat (in grams).
+6.Shucked_weight: Weight of the abalone's meat (in grams).
 
-         7.Viscera_weight: Gut weight (after bleeding) of the abalone (in grams).
+7.Viscera_weight: Gut weight (after bleeding) of the abalone (in grams).
 
-         8.Rings: The number of rings on the shell, which is often used to estimate the age of the abalone.
+8.Rings: The number of rings on the shell, which is often used to estimate the age of the abalone.
 
-         9.Age: Target variable, representing the age of the abalone.''')
+9.Age: Target variable, representing the age of the abalone.''')
 
 # Streamlit app
 st.title("Interactive Data Visualization")
