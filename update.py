@@ -115,3 +115,5 @@ mse_test = mean_squared_error(y_test, y_test_pred)
 st.subheader(f"{selected_model} Model Performance")
 st.write(f"Training MSE: {mse_train:.4f}")
 st.write(f"Testing MSE: {mse_test:.4f}")
+
+st.subheader("Predicting the Age")
