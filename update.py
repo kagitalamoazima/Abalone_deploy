@@ -46,7 +46,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 plot_type = st.sidebar.selectbox("Select Plot Type", ["Histogram", "Boxplot", "Scatter Plot", "Pie Chart"])
 
 # Dropdowns for selecting columns
-x_column = st.sidebar.selectbox("Select X-axis Column", df.select_dtypes(include=['float64']).columns)
+x_column = st.sidebar.selectbox("Select X-axis Column", df.columns)
 
 
 # Scatter plot-specific dropdown for hue (categorical variable)
@@ -73,7 +73,7 @@ elif plot_type == "Scatter Plot":
 elif plot_type == "Pie Chart":
     
     st.subheader(f"Pie Chart for {x_column}")
-    values = df[df.select_dtypes(include=['object']).columns].value_counts()
+    values = df.select_dtypes(include=['object']).columns.value_counts()
     st.pyplot(plt.pie(values, labels=values.index, autopct='%1.1f%%'))
 
 df_num=df.select_dtypes(include='number')
