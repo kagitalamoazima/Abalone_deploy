@@ -187,5 +187,5 @@ st.write({feature1: value1, feature2: value2, feature3: value3, feature4: value4
 st.write("Predicted Age:")
 st.write(predicted_age[0])
 
-
-
+with open('abalone_deploy.pkl', 'wb') as file:
+    pickle.dump(model, file)
