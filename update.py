@@ -71,10 +71,10 @@ elif plot_type == "Scatter Plot":
     st.pyplot()
 
 elif plot_type == "Pie Chart":
-    
     st.subheader(f"Pie Chart for {x_column}")
-    values = df.select_dtypes(include=['object']).columns.value_counts()
-    st.pyplot(plt.pie(values, labels=values.index, autopct='%1.1f%%'))
+    values = df[x_column].value_counts()
+    plt.pie(values, labels=values.index, autopct='%1.1f%%')
+    st.pyplot()
 
 df_num=df.select_dtypes(include='number')
 Q1 = df_num.quantile(0.25)
