@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/534731941660871226/cff1874285c340f1bd257ab12dd33523/artifacts
+end_time: 1705495626076
+entry_point_name: ''
+experiment_id: '534731941660871226'
+lifecycle_stage: active
+run_id: cff1874285c340f1bd257ab12dd33523
+run_name: Abalone-LinearRegression()
+run_uuid: cff1874285c340f1bd257ab12dd33523
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705495611929
+status: 3
+tags: []
+user_id: gowth
