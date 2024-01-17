@@ -208,7 +208,71 @@ st.write({feature1: value1, feature2: value2, feature3: value3, feature4: value4
 st.write("Predicted Age:")
 st.write(predicted_age[0])
 
-with open('abalone_deploy.pkl', 'wb') as file:
-    pickle.dump(model, file)
-    
+# Get the current working directory
+cwd = os.getcwd()
 
+# Create a subdirectory for MLflow
+mlflow_dir = os.path.join(cwd, "mlruns")
+
+import os
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error
+
+# Get the current working directory
+cwd = os.getcwd()
+
+# Create a subdirectory for MLflow
+mlflow_dir = os.path.join(cwd, "mlruns")
+
+# Check if the directory exists and is accessible
+if os.access(mlflow_dir, os.R_OK):
+    print(f"The directory {mlflow_dir} exists and is accessible.")
+else:
+    print(f"The directory {mlflow_dir} does not exist or is not accessible.")
+    # Create the directory if it doesn't exist
+    os.makedirs(mlflow_dir, exist_ok=True)
+
+# Set the tracking URI to the MLflow directory
+mlflow.set_tracking_uri('file://' + mlflow_dir)
+
+# Set the tracking URI to the local tracking server
+mlflow.set_tracking_uri('http://localhost:5000')
+
+# Define the experiment name
+experiment_name = "Abalone_experiment"
+
+# Check if the experiment exists
+experiment = mlflow.get_experiment_by_name(experiment_name)
+
+# Check if the experiment exists
+experiment = mlflow.get_experiment_by_name(experiment_name)
+
+if experiment is None:
+    # If the experiment does not exist, create it
+    mlflow.create_experiment(experiment_name)
+else:
+    # Set the experiment
+    mlflow.set_experiment(experiment_name)
+
+# Set the experiment
+mlflow.set_experiment(experiment_name)
+
+# Start a new MLflow run
+ml = [DecisionTreeRegressor(), AdaBoostRegressor(), LinearRegression()]
+for model in ml:
+    with mlflow.start_run(run_name=f"Abalone-{model}"):
+        # Use the preprocessed pipeline for training
+        model_to_fit = make_pipeline(preprocessor, model)
+        model_to_fit.fit(X_train, y_train)
+
+        # Make predictions
+        predictions = model_to_fit.predict(X_test)
+
+        # Calculate metrics
+        mse = mean_squared_error(y_test, predictions)
+
+        # Log model
+        mlflow.sklearn.log_model(model_to_fit, "model")
+
+        # Log metrics
+        mlflow.log_metric("mse", mse)

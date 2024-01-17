@@ -15,11 +15,7 @@ import pickle
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
-
 import os
-
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
 
 df = pd.read_csv("abalonedata.csv")
 
@@ -156,8 +152,6 @@ model_to_fit = make_pipeline(preprocessor,model)
 st.subheader("Predicting the Age")
 
 model_to_fit.fit(X_train, y_train)
-prediction = model_to_fit.predict(X_train)
-st.write("MSE:", mean_squared_error(y_train, prediction))
 prediction = model_to_fit.predict(X_test)
 st.write("MSE:", mean_squared_error(y_test, prediction))
 
@@ -215,8 +209,6 @@ st.write({feature1: value1, feature2: value2, feature3: value3, feature4: value4
 st.write("Predicted Age:")
 st.write(predicted_age[0])
 
-with open('abalone_deploy.pkl', 'wb') as file:
-    pickle.dump(model, file)
 # Get the current working directory
 cwd = os.getcwd()
 
@@ -256,6 +248,8 @@ experiment = mlflow.get_experiment_by_name(experiment_name)
 # Check if the experiment exists
 experiment = mlflow.get_experiment_by_name(experiment_name)
 
+
+
 if experiment is None:
     # If the experiment does not exist, create it
     mlflow.create_experiment(experiment_name)
@@ -270,21 +264,18 @@ mlflow.set_experiment(experiment_name)
 ml = [DecisionTreeRegressor(), AdaBoostRegressor(), LinearRegression()]
 for model in ml:
     with mlflow.start_run(run_name=f"Abalone-{model}"):
-        # Define and train the model
-        clf = model
-        clf.fit(X_train, y_train)
+        # Use the preprocessed pipeline for training
+        model_to_fit = make_pipeline(preprocessor, model)
+        model_to_fit.fit(X_train, y_train)
 
         # Make predictions
-        predictions = clf.predict(X_test)
+        predictions = model_to_fit.predict(X_test)
 
         # Calculate metrics
         mse = mean_squared_error(y_test, predictions)
-        # f1 = f1_score(y_test, predictions, average='macro')
 
         # Log model
-        mlflow.sklearn.log_model(clf, "model")
+        mlflow.sklearn.log_model(model_to_fit, "model")
 
         # Log metrics
         mlflow.log_metric("mse", mse)
-
-
