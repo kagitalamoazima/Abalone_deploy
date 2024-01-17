@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/534731941660871226
+creation_time: 1705495579830
+experiment_id: '534731941660871226'
+last_update_time: 1705495579830
+lifecycle_stage: active
+name: Abalone_experiment
