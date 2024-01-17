@@ -151,6 +151,8 @@ model_to_fit = make_pipeline(preprocessor,model)
 st.subheader("Predicting the Age")
 
 model_to_fit.fit(X_train, y_train)
+prediction = model_to_fit.predict(X_train)
+st.write("MSE:", mean_squared_error(y_train, prediction))
 prediction = model_to_fit.predict(X_test)
 st.write("MSE:", mean_squared_error(y_test, prediction))
 
