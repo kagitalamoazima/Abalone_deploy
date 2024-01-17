@@ -15,6 +15,9 @@ import pickle
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
+
+import os
+
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 
@@ -214,7 +217,11 @@ st.write(predicted_age[0])
 
 with open('abalone_deploy.pkl', 'wb') as file:
     pickle.dump(model, file)
+# Get the current working directory
+cwd = os.getcwd()
 
+# Create a subdirectory for MLflow
+mlflow_dir = os.path.join(cwd, "mlruns")
 
 import os
 from sklearn.tree import DecisionTreeRegressor
@@ -279,4 +286,5 @@ for model in ml:
 
         # Log metrics
         mlflow.log_metric("mse", mse)
+
 
