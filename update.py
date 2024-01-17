@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import numpy as np 
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
@@ -11,6 +12,11 @@ from sklearn.metrics import mean_squared_error
 import mlflow
 import mlflow.sklearn
 import pickle
+from sklearn.impute import SimpleImputer
+from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+
 
 df = pd.read_csv("abalonedata.csv")
 
@@ -86,23 +92,51 @@ df_num = df_num.clip(lower=lower_bound, upper=upper_bound, axis=1)
 x=df.drop('Age',axis=1) #Seperate fetures and target variable.
 y=df.Age
 
-x_num=x.select_dtypes('number')
+# Create the pipeline for numeric features
+numeric_processor = Pipeline([
+    ('imputation_mean', SimpleImputer(missing_values=np.nan, strategy='mean')),
+    ('scaler', MinMaxScaler())
+])
 
-scaler=MinMaxScaler()
-x_num_scaled=scaler.fit_transform(x_num)
+# Create the pipeline for categorical features
+cat_processor = Pipeline([
+    ('imputation_constant', SimpleImputer(fill_value='missing', strategy='constant')),
+    ('encoder', OneHotEncoder(handle_unknown='ignore'))
+])
 
-x_num_scaled=pd.DataFrame(x_num_scaled,columns=x_num.columns,index=x_num.index)
+# Combine preprocessing techniques
+preprocessors = ColumnTransformer(
+    [('categorical', cat_processor, ['Sex']),
+     ('numerical', numeric_processor, ['Length', 'Diameter', 'Height', 'Whole_weight', 'Shucked_weight', 'Viscera_weight', 'Rings'])])
 
-x_cat=x.select_dtypes('object')
 
-x_cat_encoded=pd.get_dummies(x_cat,drop_first=True,dtype=int)
-
-x = pd.concat([x_num_scaled, x_cat_encoded], axis=1)
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 
 x.to_csv('Train_features_abalone.csv', index=False)
 y.to_csv('predict_target_abalone.csv',index=False)
+
+X_train_transformed = preprocessors.transform(X_train)
+X_test_transformed = preprocessors.transform(X_test)
+
+
+dt_pipeline = Pipeline([
+    ('preprocessor', preprocessors),
+    ('regressor', DecisionTreeRegressor())
+])
+
+lr_pipeline = Pipeline([
+    ('preprocessor', preprocessors),
+    ('regressor', LinearRegression())
+])
+
+adaboost_pipeline = Pipeline([
+    ('preprocessor', preprocessors),
+    ('regressor', AdaBoostRegressor(base_estimator=DecisionTreeRegressor(), n_estimators=50, learning_rate=0.1, random_state=42))
+])
+
+# Dictionary to map model names to their respective pipelines
+models = {'Decision Tree': dt_pipeline, 'Linear Regression': lr_pipeline, 'AdaBoost': adaboost_pipeline}
 
 st.title("Regression Model Comparison")
 
@@ -128,7 +162,7 @@ elif selected_model == "AdaBoost":
     base_model = DecisionTreeRegressor(max_depth=Hyper_parameter_tuning)
     model = AdaBoostRegressor(base_model, n_estimators=n_estimator, learning_rate=learning_rate, random_state=42)
 
-model.fit(X_train, y_train)
+model.fit(X_train_transformed, y_train)
 
 y_train_pred = model.predict(X_train)
 y_test_pred = model.predict(X_test)
@@ -187,42 +221,5 @@ st.write({feature1: value1, feature2: value2, feature3: value3, feature4: value4
 st.write("Predicted Age:")
 st.write(predicted_age[0])
 
-
-
-if st.sidebar.button("Train Model"):
-    # Perform model training using the selected hyperparameters
-    # Log the model using MLflow
-    with mlflow.start_run(run_name="update"):
-    # Log the model using MLflow
-        
-        # Log parameters
-        mlflow.log_param("model_type", selected_model)
-        if Hyper_parameter_tuning is not None:
-            mlflow.log_param("max_depth", Hyper_parameter_tuning)
-        if selected_model == "AdaBoost":
-            mlflow.log_param("max_depth", Hyper_parameter_tuning)
-            mlflow.log_param("n_estimators", n_estimator)
-            mlflow.log_param("learning_rate", learning_rate)
-
-        # Log other feature values
-        mlflow.log_param("feature1", value1)
-        mlflow.log_param("feature2", value2)
-        mlflow.log_param("feature3", value3)
-        mlflow.log_param("feature4", value4)
-        mlflow.log_param("feature5", value5)
-        mlflow.log_param("feature6", value6)
-        mlflow.log_param("feature7", value7)
-        mlflow.log_param("feature8", value8)
-        mlflow.log_param("feature9", value9)
-
-        # Log metrics
-        mlflow.log_metric("training_mse", mse_train)
-        mlflow.log_metric("testing_mse", mse_test)
-
-        # Save the model as a pickle file
-        model_path = "model.pkl"
-        with open(model_path, 'wb') as file:
-            pickle.dump(model, file)
-
-        # Log the model
-        mlflow.sklearn.log_model(model, "model")
+with open('abalone_deploy.pkl', 'wb') as file:
+    pickle.dump((preprocessors, model), file)
