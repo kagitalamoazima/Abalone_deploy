@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-import numpy as np 
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
@@ -13,8 +12,6 @@ import mlflow
 import mlflow.sklearn
 import pickle
 from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline
-
 
 df = pd.read_csv("abalonedata.csv")
 
@@ -92,22 +89,18 @@ df_num = df_num.clip(lower=lower_bound, upper=upper_bound, axis=1)
 x=df.drop('Age',axis=1) #Seperate fetures and target variable.
 y=df.Age
 
-steps = [('imputation_mean', SimpleImputer(missing_values=np.nan, strategy= 'mean')), ('scaler', MinMaxScaler())]
+x_num=x.select_dtypes('number')
 
-numeric_processor  = Pipeline(steps)
+scaler=MinMaxScaler()
+x_num_scaled=scaler.fit_transform(x_num)
 
-from sklearn.preprocessing import OneHotEncoder
-steps_cat = [('imputation_constant', SimpleImputer(fill_value='missing', strategy='constant')), ('encoder', OneHotEncoder(handle_unknown='ignore'))]
-cat_processor = Pipeline(steps_cat)
+x_num_scaled=pd.DataFrame(x_num_scaled,columns=x_num.columns,index=x_num.index)
 
-#combine preprocessing techniques
+x_cat=x.select_dtypes('object')
 
-from sklearn.compose import ColumnTransformer
-preprocessors = ColumnTransformer(
-    [('categorical', cat_processor,['Sex']),
-    ('numerical', numeric_processor, ['Length','Diameter', 'Height', 'Whole_weight', 'Shucked_weight', 'Viscera_weight', 'Rings'])])
+x_cat_encoded=pd.get_dummies(x_cat,drop_first=True,dtype=int)
 
-
+x = pd.concat([x_num_scaled, x_cat_encoded], axis=1)
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 
