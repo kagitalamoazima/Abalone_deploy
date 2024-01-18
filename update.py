@@ -110,11 +110,7 @@ preprocessor = ColumnTransformer(
         ('cat', cat_processor, cat_features)
     ])
 
-
-
-
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
-
 
 x.to_csv('Train_features_abalone.csv', index=False)
 y.to_csv('predict_target_abalone.csv',index=False)

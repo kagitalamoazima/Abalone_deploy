@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Second%20term/MLOP/GITdesk/Abalone_deploy/mlruns/333040256532329157/5bd1875b35f44964aeda48c25153dd6a/artifacts
+end_time: 1705508129915
+entry_point_name: ''
+experiment_id: '333040256532329157'
+lifecycle_stage: active
+run_id: 5bd1875b35f44964aeda48c25153dd6a
+run_name: Linear_Model_run
+run_uuid: 5bd1875b35f44964aeda48c25153dd6a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705508098208
+status: 3
+tags: []
+user_id: moazi
