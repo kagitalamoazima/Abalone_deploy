@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Second%20term/MLOP/GITdesk/Abalone_deploy/mlruns/333040256532329157/5711809138194257b43d724ba1dc1cf3/artifacts
+end_time: 1705508137608
+entry_point_name: ''
+experiment_id: '333040256532329157'
+lifecycle_stage: active
+run_id: 5711809138194257b43d724ba1dc1cf3
+run_name: Ada_Boost_Model_run
+run_uuid: 5711809138194257b43d724ba1dc1cf3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705508133806
+status: 3
+tags: []
+user_id: moazi

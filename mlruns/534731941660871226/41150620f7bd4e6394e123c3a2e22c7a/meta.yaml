@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/534731941660871226/41150620f7bd4e6394e123c3a2e22c7a/artifacts
+end_time: 1705500175138
+entry_point_name: ''
+experiment_id: '534731941660871226'
+lifecycle_stage: active
+run_id: 41150620f7bd4e6394e123c3a2e22c7a
+run_name: Abalone-DecisionTreeRegressor()
+run_uuid: 41150620f7bd4e6394e123c3a2e22c7a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705500166015
+status: 3
+tags: []
+user_id: gowth

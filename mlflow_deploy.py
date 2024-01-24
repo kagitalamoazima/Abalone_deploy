@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
@@ -13,6 +14,8 @@ import mlflow.sklearn
 import pickle
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+import os
 
 df = pd.read_csv("abalonedata.csv")
 
@@ -92,28 +95,22 @@ y=df.Age
 
 # Numerical features
 num_features = x.select_dtypes(include='number').columns
-num_transformer = Pipeline(steps=[
-    ('scaler', MinMaxScaler())
-])
+steps = [('imputation_mean', SimpleImputer(missing_values=np.nan, strategy= 'mean')), ('scaler', MinMaxScaler())]
+numeric_processor  = Pipeline(steps)
 
 # Categorical features
 cat_features = x.select_dtypes('object').columns
-cat_transformer = Pipeline(steps=[
-    ('onehot', OneHotEncoder(drop='first', dtype=int))
-])
+steps_cat = [('imputation_constant', SimpleImputer(fill_value='missing', strategy='constant')), ('encoder', OneHotEncoder(handle_unknown='ignore'))]
+cat_processor = Pipeline(steps_cat)
 
 # Preprocessing pipeline
 preprocessor = ColumnTransformer(
     transformers=[
-        ('num', num_transformer, num_features),
-        ('cat', cat_transformer, cat_features)
+        ('num', numeric_processor, num_features),
+        ('cat', cat_processor, cat_features)
     ])
 
-
-
-
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
-
 
 x.to_csv('Train_features_abalone.csv', index=False)
 y.to_csv('predict_target_abalone.csv',index=False)
@@ -145,29 +142,22 @@ elif selected_model == "AdaBoost":
 
 from sklearn.pipeline import make_pipeline
 
-model = make_pipeline(preprocessor,model)
+model_to_fit = make_pipeline(preprocessor,model)
 
-model.fit(X_train, y_train)
-
-y_train_pred = model.predict(X_train)
-y_test_pred = model.predict(X_test)
-
-# Calculate MSE for training and testing set
-mse_train = mean_squared_error(y_train, y_train_pred)
-mse_test = mean_squared_error(y_test, y_test_pred)
-
-st.subheader(f"{selected_model} Model Performance")
-st.write(f"Training MSE: {mse_train:.4f}")
-st.write(f"Testing MSE: {mse_test:.4f}")
 
 st.subheader("Predicting the Age")
+
+model_to_fit.fit(X_train, y_train)
+prediction = model_to_fit.predict(X_test)
+st.write("MSE:", mean_squared_error(y_test, prediction))
+
 
 st.sidebar.write("Select feature values for prediction of Age")
 # Select boxes for choosing features
 
 # Select boxes and sliders for choosing features
 feature1 = "Sex"
-value1 = st.sidebar.slider(f"Select Value for {feature1}",0,1)
+value1 = st.sidebar.radio(f"Select Value for {feature1}",[0,1])
 
 feature2 = "Length"
 value2 = st.sidebar.slider(f"Select Value for {feature2}", 0.01, 1.0, 0.5)
@@ -203,6 +193,7 @@ input_features = pd.DataFrame({
 
 input_features = input_features.fillna(input_features.mean())
 
+
 input_features = preprocessor.transform(input_features)
 
 # Predict the age
@@ -215,7 +206,73 @@ st.write({feature1: value1, feature2: value2, feature3: value3, feature4: value4
 st.write("Predicted Age:")
 st.write(predicted_age[0])
 
-with open('abalone_deploy.pkl', 'wb') as file:
-    pickle.dump(model, file)
-    
+# Get the current working directory
+cwd = os.getcwd()
 
+# Create a subdirectory for MLflow
+mlflow_dir = os.path.join(cwd, "mlruns")
+
+import os
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error
+
+# Get the current working directory
+cwd = os.getcwd()
+
+# Create a subdirectory for MLflow
+mlflow_dir = os.path.join(cwd, "mlruns")
+
+# Check if the directory exists and is accessible
+if os.access(mlflow_dir, os.R_OK):
+    print(f"The directory {mlflow_dir} exists and is accessible.")
+else:
+    print(f"The directory {mlflow_dir} does not exist or is not accessible.")
+    # Create the directory if it doesn't exist
+    os.makedirs(mlflow_dir, exist_ok=True)
+
+# Set the tracking URI to the MLflow directory
+mlflow.set_tracking_uri('file://' + mlflow_dir)
+
+# Set the tracking URI to the local tracking server
+mlflow.set_tracking_uri('http://localhost:5000')
+
+# Define the experiment name
+experiment_name = "Abalone_experiment"
+
+# Check if the experiment exists
+experiment = mlflow.get_experiment_by_name(experiment_name)
+
+# Check if the experiment exists
+experiment = mlflow.get_experiment_by_name(experiment_name)
+
+
+
+if experiment is None:
+    # If the experiment does not exist, create it
+    mlflow.create_experiment(experiment_name)
+else:
+    # Set the experiment
+    mlflow.set_experiment(experiment_name)
+
+# Set the experiment
+mlflow.set_experiment(experiment_name)
+
+# Start a new MLflow run
+ml = [DecisionTreeRegressor(), AdaBoostRegressor(), LinearRegression()]
+for model in ml:
+    with mlflow.start_run(run_name=f"Abalone-{model}"):
+        # Use the preprocessed pipeline for training
+        model_to_fit = make_pipeline(preprocessor, model)
+        model_to_fit.fit(X_train, y_train)
+
+        # Make predictions
+        predictions = model_to_fit.predict(X_test)
+
+        # Calculate metrics
+        mse = mean_squared_error(y_test, predictions)
+
+        # Log model
+        mlflow.sklearn.log_model(model_to_fit, "model")
+
+        # Log metrics
+        mlflow.log_metric("mse", mse)

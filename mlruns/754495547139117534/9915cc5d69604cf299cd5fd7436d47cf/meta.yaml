@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Second%20term/MLOP/GITdesk/Abalone_deploy/mlruns/754495547139117534/9915cc5d69604cf299cd5fd7436d47cf/artifacts
+end_time: 1705423352490
+entry_point_name: ''
+experiment_id: '754495547139117534'
+lifecycle_stage: active
+run_id: 9915cc5d69604cf299cd5fd7436d47cf
+run_name: Linear_Model_run
+run_uuid: 9915cc5d69604cf299cd5fd7436d47cf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705423347322
+status: 4
+tags: []
+user_id: Asus

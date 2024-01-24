@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/534731941660871226/69adb3b39f824140988111497b8980f2/artifacts
+end_time: 1705499620095
+entry_point_name: ''
+experiment_id: '534731941660871226'
+lifecycle_stage: active
+run_id: 69adb3b39f824140988111497b8980f2
+run_name: Abalone-LinearRegression()
+run_uuid: 69adb3b39f824140988111497b8980f2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705499614887
+status: 3
+tags: []
+user_id: moazi
