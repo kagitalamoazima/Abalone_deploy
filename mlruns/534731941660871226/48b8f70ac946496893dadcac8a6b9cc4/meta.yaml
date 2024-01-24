@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/534731941660871226/48b8f70ac946496893dadcac8a6b9cc4/artifacts
+end_time: 1705567254941
+entry_point_name: ''
+experiment_id: '534731941660871226'
+lifecycle_stage: active
+run_id: 48b8f70ac946496893dadcac8a6b9cc4
+run_name: Abalone-AdaBoostRegressor()
+run_uuid: 48b8f70ac946496893dadcac8a6b9cc4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705567246467
+status: 3
+tags: []
+user_id: moazi
