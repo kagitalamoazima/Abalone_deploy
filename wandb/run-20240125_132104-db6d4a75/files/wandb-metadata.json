@@ -1,0 +1,47 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.8.18",
+    "heartbeatAt": "2024-01-25T07:51:09.236713",
+    "startedAt": "2024-01-25T07:51:04.834826",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "c:/Users/gowth/Documents/GitHub/Abalone_deploy/update.py",
+    "codePathLocal": "update.py",
+    "codePath": "update.py",
+    "host": "LAPTOP-JEV2TLFK",
+    "username": "gowth",
+    "executable": "C:\\Users\\gowth\\anaconda3\\envs\\gowenv\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2100.0,
+        "min": 0.0,
+        "max": 2100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2100.0,
+            "min": 0.0,
+            "max": 2100.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 231.99608993530273,
+            "used": 137.64656448364258
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 1050",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1050",
+            "memory_total": 3221225472
+        }
+    ],
+    "memory": {
+        "total": 5.879985809326172
+    }
+}

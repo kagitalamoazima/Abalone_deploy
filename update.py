@@ -16,7 +16,7 @@ import wandb
 
 # Hardcoded API key (replace this with your actual API key)
 
-wandb_api_key = '557c195aa0a979684a3c4608ffaecbd9336e98fb'
+wandb_api_key = 'cd79fc148a777d272c1b3834db4e8513af8d1f66'
 wandb.login(key=wandb_api_key)
 
 df = pd.read_csv("abalonedata.csv")
@@ -231,3 +231,55 @@ for model in ml:
 
     # Log test MSE
     wandb.log({"test_mse": mean_squared_error(y_test, test_predictions)})
+
+    import wandb
+
+# Initialize Weights & Biases run
+wandb.init(project='Abalone', name='Track_runs')
+
+# List of models
+ml = [DecisionTreeRegressor(), GradientBoostingRegressor(), LinearRegression()]
+
+# Dictionary to store MSE for each model
+mse_dict = {}
+
+# Iterate over models
+for model in ml:
+    # Create a pipeline with preprocessor and the current model
+    model_to_fit = make_pipeline(preprocessor, model)
+    
+    # Fit the model on training data
+    model_to_fit.fit(X_train, y_train)
+
+    # Predictions on training and test sets
+    train_predictions = model_to_fit.predict(X_train)
+    test_predictions = model_to_fit.predict(X_test)
+
+    # Calculate MSE for training and test sets
+    train_mse = mean_squared_error(y_train, train_predictions)
+    test_mse = mean_squared_error(y_test, test_predictions)
+
+    # Log metrics to Weights & Biases
+    wandb.log({"model_name": type(model).__name__})
+    wandb.log({"train_mse": train_mse})
+    wandb.log({"test_mse": test_mse})
+
+    # Store MSE in the dictionary
+    mse_dict[type(model).__name__] = test_mse
+
+# Find the model with the lowest test MSE
+best_model_name = min(mse_dict, key=mse_dict.get)
+best_model_mse = mse_dict[best_model_name]
+
+# Display the best model and its test MSE
+st.subheader("Best Model:")
+st.write(f"Model: {best_model_name}")
+st.write(f"Test MSE: {best_model_mse}")
+
+# Optionally, you can save the best model for future use
+best_model = next(model for model in ml if type(model).__name__ == best_model_name)
+best_model_pipeline = make_pipeline(preprocessor, best_model)
+best_model_pipeline.fit(X_train, y_train)
+
+# Now you can use 'best_model_pipeline' for predictions on new data.
+
