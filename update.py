@@ -258,4 +258,3 @@ best_model_pipeline = make_pipeline(preprocessor, best_model)
 best_model_pipeline.fit(X_train, y_train)
 
 # Now you can use 'best_model_pipeline' for predictions on new data.
-
