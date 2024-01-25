@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import AdaBoostRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
@@ -132,7 +132,7 @@ if selected_model == "Decision Tree":
 elif selected_model == "Linear Regression":
     model = LinearRegression()
 
-elif selected_model == "AdaBoost":
+elif selected_model == "Gradient Boosting":
     Hyper_parameter_tuning = st.sidebar.slider("select value for the Tuning for max depth",min_value=3,max_value=10,value=2)
     n_estimator = st.sidebar.slider("select n_estimator for Tuning", min_value=50, max_value=150, value=50)
     learning_rate = st.sidebar.slider("Learning Rate", min_value=0.01, max_value=1.0, value=0.1)
@@ -140,7 +140,7 @@ elif selected_model == "AdaBoost":
     st.write(f"Number of Estimators: {n_estimator}")
     st.write(f"Learning Rate: {learning_rate}")
     base_model = DecisionTreeRegressor(max_depth=Hyper_parameter_tuning)
-    model = AdaBoostRegressor(base_model, n_estimators=n_estimator, learning_rate=learning_rate, random_state=42)
+    model = GradientBoostingRegressor(base_model, n_estimators=n_estimator, learning_rate=learning_rate, random_state=42)
 
 from sklearn.pipeline import make_pipeline
 
@@ -212,7 +212,7 @@ st.write(predicted_age[0])
 
 wandb.init(project='Abalone', name='Track_runs')
 
-ml = [DecisionTreeRegressor(), AdaBoostRegressor(), LinearRegression()]
+ml = [DecisionTreeRegressor(), GradientBoostingRegressor(), LinearRegression()]
 for model in ml:
 
     # Use the preprocessed pipeline for training
