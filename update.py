@@ -213,19 +213,21 @@ st.write(predicted_age[0])
 wandb.init(project='Abalone', name='Track_runs')
 
 ml = [DecisionTreeRegressor(), GradientBoostingRegressor(), LinearRegression()]
-for model in ml:
 
-    # Use the preprocessed pipeline for training
+import json
+
+for model in ml:
     model_to_fit = make_pipeline(preprocessor, model)
     model_to_fit.fit(X_train, y_train)
 
-    train_preict = model_to_fit.predict(X_train)
-
-    # Make predictions
+    train_predictions = model_to_fit.predict(X_train)
     test_predictions = model_to_fit.predict(X_test)
 
-    # Log model
-    wandb.log(model_to_fit, "model")
+    # Log the name of the model as a string
+    #wandb.log({"model_name": type(model).__name__})
 
-    # Log metrics
-    wandb.log({"train_mse":mean_squared_error(y_train, train_preict),"test_mse": mean_squared_error(y_test, test_predictions)})
+    # Log train MSE
+    wandb.log({"train_mse": mean_squared_error(y_train, train_predictions)})
+
+    # Log test MSE
+    wandb.log({"test_mse": mean_squared_error(y_test, test_predictions)})

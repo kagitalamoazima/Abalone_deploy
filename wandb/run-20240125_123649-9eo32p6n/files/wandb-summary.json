@@ -1,0 +1,1 @@
+{"model_name": "LinearRegression", "_timestamp": 1706166447.1857908, "_runtime": 37.46448373794556, "_step": 8, "train_mse": 4.783973482617787, "test_mse": 4.892849648398076, "_wandb": {"runtime": 31}}
