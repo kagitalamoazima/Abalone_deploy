@@ -16,8 +16,7 @@ import wandb
 
 # Hardcoded API key (replace this with your actual API key)
 
-wandb_api_key = 'cd79fc148a777d272c1b3834db4e8513af8d1f66'
-wandb.login(key=wandb_api_key)
+
 
 import os
 
@@ -213,6 +212,8 @@ st.write("Selected Features and Values:")
 st.write({feature1: value1, feature2: value2, feature3: value3, feature4: value4, feature5: value5, feature6: value6, feature7: value7, feature8: value8})
 st.write("Predicted Age:")
 st.write(predicted_age[0])
+wandb_api_key = 'cd79fc148a777d272c1b3834db4e8513af8d1f66'
+wandb.login(key=wandb_api_key)
 
 # Initialize Weights & Biases run
 wandb.init(project='Abalone', name='Track_runs')
