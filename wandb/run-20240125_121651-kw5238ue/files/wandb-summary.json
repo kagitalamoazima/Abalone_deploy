@@ -1,0 +1,1 @@
+{"model_info": {"model_type": "LinearRegression", "hyperparameters": {"copy_X": true, "fit_intercept": true, "n_jobs": null, "positive": false}}, "_timestamp": 1706165225.2752366, "_runtime": 13.319092512130737, "_step": 5, "train_mse": 4.783973482617787, "test_mse": 4.892849648398076, "_wandb": {"runtime": 11}}

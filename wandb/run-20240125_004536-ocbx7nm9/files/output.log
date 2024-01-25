@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "d:/praxis/Term 2/MLOP/Abalone_deploy/update.py", line 228, in <module>
+    wandb.sklearn.log(model_to_fit, "model")
+  File "D:\Anaconda\Conda\envs\Deploy_project\lib\site-packages\wandb\sdk\lib\lazyloader.py", line 59, in __getattr__
+    return getattr(module, item)
+AttributeError: module 'wandb.sklearn' has no attribute 'log'

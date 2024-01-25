@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "d:/praxis/Term 2/MLOP/Abalone_deploy/update.py", line 228, in <module>
+    wandb.log(model_to_fit, "model")
+  File "D:\Anaconda\Conda\envs\Deploy_project\lib\site-packages\wandb\sdk\wandb_run.py", line 420, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\Anaconda\Conda\envs\Deploy_project\lib\site-packages\wandb\sdk\wandb_run.py", line 371, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "D:\Anaconda\Conda\envs\Deploy_project\lib\site-packages\wandb\sdk\wandb_run.py", line 361, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\Anaconda\Conda\envs\Deploy_project\lib\site-packages\wandb\sdk\wandb_run.py", line 1820, in log
+    self._log(data=data, step=step, commit=commit)
+  File "D:\Anaconda\Conda\envs\Deploy_project\lib\site-packages\wandb\sdk\wandb_run.py", line 1590, in _log
+    raise ValueError("wandb.log must be passed a dictionary")
+ValueError: wandb.log must be passed a dictionary

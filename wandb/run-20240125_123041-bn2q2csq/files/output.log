@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "d:/praxis/Term 2/MLOP/Abalone_deploy/update.py", line 230, in <module>
+    wandb.log({"train_mse": mean_squared_error(y_train, train_predictions)}, step=wandb.run.step, commit=False, x=wandb.run.step)
+  File "D:\Anaconda\Conda\envs\Deploy_project\lib\site-packages\wandb\sdk\wandb_run.py", line 420, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\Anaconda\Conda\envs\Deploy_project\lib\site-packages\wandb\sdk\wandb_run.py", line 371, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "D:\Anaconda\Conda\envs\Deploy_project\lib\site-packages\wandb\sdk\wandb_run.py", line 361, in wrapper
+    return func(self, *args, **kwargs)
+TypeError: log() got an unexpected keyword argument 'x'

@@ -1,0 +1,233 @@
+2024-01-25 13:14:29,705 INFO    StreamThr :28072 [internal.py:wandb_internal():86] W&B internal server running at pid: 28072, started at: 2024-01-25 13:14:29.703706
+2024-01-25 13:14:29,710 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: status
+2024-01-25 13:14:29,717 INFO    WriterThread:28072 [datastore.py:open_for_write():87] open: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\run-fci2v58d.wandb
+2024-01-25 13:14:29,722 DEBUG   SenderThread:28072 [sender.py:send():382] send: header
+2024-01-25 13:14:29,722 DEBUG   SenderThread:28072 [sender.py:send():382] send: run
+2024-01-25 13:14:31,539 INFO    SenderThread:28072 [dir_watcher.py:__init__():211] watching files in: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files
+2024-01-25 13:14:31,539 INFO    SenderThread:28072 [sender.py:_start_run_threads():1136] run started: fci2v58d with start time 1706168669.705705
+2024-01-25 13:14:31,594 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: check_version
+2024-01-25 13:14:31,594 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: check_version
+2024-01-25 13:14:33,114 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: run_start
+2024-01-25 13:14:34,250 DEBUG   HandlerThread:28072 [system_info.py:__init__():27] System info init
+2024-01-25 13:14:34,250 DEBUG   HandlerThread:28072 [system_info.py:__init__():42] System info init done
+2024-01-25 13:14:34,251 INFO    HandlerThread:28072 [system_monitor.py:start():194] Starting system monitor
+2024-01-25 13:14:34,251 INFO    SystemMonitor:28072 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-01-25 13:14:34,251 INFO    HandlerThread:28072 [system_monitor.py:probe():214] Collecting system info
+2024-01-25 13:14:34,264 INFO    SystemMonitor:28072 [interfaces.py:start():190] Started cpu monitoring
+2024-01-25 13:14:34,265 INFO    SystemMonitor:28072 [interfaces.py:start():190] Started disk monitoring
+2024-01-25 13:14:34,267 INFO    SystemMonitor:28072 [interfaces.py:start():190] Started gpu monitoring
+2024-01-25 13:14:34,268 INFO    SystemMonitor:28072 [interfaces.py:start():190] Started memory monitoring
+2024-01-25 13:14:34,290 INFO    SystemMonitor:28072 [interfaces.py:start():190] Started network monitoring
+2024-01-25 13:14:34,291 DEBUG   HandlerThread:28072 [system_info.py:probe():151] Probing system
+2024-01-25 13:14:34,292 DEBUG   HandlerThread:28072 [system_info.py:probe():199] Probing system done
+2024-01-25 13:14:34,292 DEBUG   HandlerThread:28072 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.8.18', 'heartbeatAt': '2024-01-25T07:44:34.291236', 'startedAt': '2024-01-25T07:44:29.681194', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'c:/Users/gowth/Documents/GitHub/Abalone_deploy/update.py', 'codePathLocal': 'update.py', 'codePath': 'update.py', 'host': 'LAPTOP-JEV2TLFK', 'username': 'gowth', 'executable': 'C:\\Users\\gowth\\anaconda3\\envs\\gowenv\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 2100.0, 'min': 0.0, 'max': 2100.0}, 'cpu_freq_per_core': [{'current': 2100.0, 'min': 0.0, 'max': 2100.0}], 'disk': {'/': {'total': 231.99608993530273, 'used': 137.6340789794922}}, 'gpu': 'NVIDIA GeForce GTX 1050', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GTX 1050', 'memory_total': 3221225472}], 'memory': {'total': 5.879985809326172}}
+2024-01-25 13:14:34,292 INFO    HandlerThread:28072 [system_monitor.py:probe():224] Finished collecting system info
+2024-01-25 13:14:34,292 INFO    HandlerThread:28072 [system_monitor.py:probe():227] Publishing system info
+2024-01-25 13:14:34,292 DEBUG   HandlerThread:28072 [system_info.py:_save_conda():208] Saving list of conda packages installed into the current environment
+2024-01-25 13:14:34,296 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:34,296 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:34,583 INFO    Thread-12 :28072 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\conda-environment.yaml
+2024-01-25 13:14:36,324 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:36,325 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:38,355 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-01-25 13:14:38,355 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-01-25 13:14:38,556 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:38,563 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:40,573 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:40,574 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:42,584 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-01-25 13:14:42,584 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-01-25 13:14:42,731 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:42,739 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:43,581 DEBUG   HandlerThread:28072 [system_info.py:_save_conda():220] Saving conda packages done
+2024-01-25 13:14:43,584 INFO    HandlerThread:28072 [system_monitor.py:probe():229] Finished publishing system info
+2024-01-25 13:14:43,599 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: status_report
+2024-01-25 13:14:43,599 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: keepalive
+2024-01-25 13:14:43,600 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: status_report
+2024-01-25 13:14:43,600 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: keepalive
+2024-01-25 13:14:43,601 DEBUG   SenderThread:28072 [sender.py:send():382] send: files
+2024-01-25 13:14:43,601 INFO    SenderThread:28072 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2024-01-25 13:14:43,624 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: python_packages
+2024-01-25 13:14:43,625 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: python_packages
+2024-01-25 13:14:43,629 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: stop_status
+2024-01-25 13:14:43,630 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-25 13:14:43,632 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: stop_status
+2024-01-25 13:14:43,671 INFO    Thread-12 :28072 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\conda-environment.yaml
+2024-01-25 13:14:43,672 INFO    Thread-12 :28072 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\wandb-metadata.json
+2024-01-25 13:14:43,673 INFO    Thread-12 :28072 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\requirements.txt
+2024-01-25 13:14:43,759 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-25 13:14:43,761 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-25 13:14:44,014 DEBUG   SenderThread:28072 [sender.py:send():382] send: telemetry
+2024-01-25 13:14:44,014 DEBUG   SenderThread:28072 [sender.py:send():382] send: history
+2024-01-25 13:14:44,015 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: summary_record
+2024-01-25 13:14:44,019 INFO    SenderThread:28072 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-01-25 13:14:44,021 DEBUG   SenderThread:28072 [sender.py:send():382] send: history
+2024-01-25 13:14:44,021 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: summary_record
+2024-01-25 13:14:44,024 INFO    SenderThread:28072 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-01-25 13:14:44,677 INFO    Thread-12 :28072 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\wandb-summary.json
+2024-01-25 13:14:44,741 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:44,741 ERROR   gpu       :28072 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-01-25 13:14:45,155 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-25 13:14:45,157 DEBUG   SenderThread:28072 [sender.py:send():382] send: history
+2024-01-25 13:14:45,157 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-25 13:14:45,157 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: summary_record
+2024-01-25 13:14:45,158 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: status_report
+2024-01-25 13:14:45,160 INFO    SenderThread:28072 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-01-25 13:14:45,162 DEBUG   SenderThread:28072 [sender.py:send():382] send: history
+2024-01-25 13:14:45,162 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: summary_record
+2024-01-25 13:14:45,164 INFO    SenderThread:28072 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-01-25 13:14:45,206 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-25 13:14:45,207 DEBUG   SenderThread:28072 [sender.py:send():382] send: history
+2024-01-25 13:14:45,208 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-25 13:14:45,208 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: summary_record
+2024-01-25 13:14:45,211 INFO    SenderThread:28072 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-01-25 13:14:45,212 DEBUG   SenderThread:28072 [sender.py:send():382] send: history
+2024-01-25 13:14:45,213 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: summary_record
+2024-01-25 13:14:45,214 INFO    SenderThread:28072 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-01-25 13:14:45,215 DEBUG   SenderThread:28072 [sender.py:send():382] send: exit
+2024-01-25 13:14:45,216 INFO    SenderThread:28072 [sender.py:send_exit():589] handling exit code: 0
+2024-01-25 13:14:45,216 INFO    SenderThread:28072 [sender.py:send_exit():591] handling runtime: 12
+2024-01-25 13:14:45,217 INFO    SenderThread:28072 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-01-25 13:14:45,218 INFO    SenderThread:28072 [sender.py:send_exit():597] send defer
+2024-01-25 13:14:45,219 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,219 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 0
+2024-01-25 13:14:45,219 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,220 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 0
+2024-01-25 13:14:45,220 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 1
+2024-01-25 13:14:45,220 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,220 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 1
+2024-01-25 13:14:45,221 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,221 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 1
+2024-01-25 13:14:45,221 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 2
+2024-01-25 13:14:45,221 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,222 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 2
+2024-01-25 13:14:45,222 INFO    HandlerThread:28072 [system_monitor.py:finish():203] Stopping system monitor
+2024-01-25 13:14:45,222 DEBUG   SystemMonitor:28072 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-01-25 13:14:45,223 INFO    HandlerThread:28072 [interfaces.py:finish():202] Joined cpu monitor
+2024-01-25 13:14:45,237 DEBUG   SystemMonitor:28072 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-01-25 13:14:45,237 INFO    HandlerThread:28072 [interfaces.py:finish():202] Joined disk monitor
+2024-01-25 13:14:45,238 DEBUG   SystemMonitor:28072 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-01-25 13:14:45,312 ERROR   gpu       :28072 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2024-01-25 13:14:45,313 INFO    HandlerThread:28072 [interfaces.py:finish():202] Joined gpu monitor
+2024-01-25 13:14:45,313 INFO    HandlerThread:28072 [interfaces.py:finish():202] Joined memory monitor
+2024-01-25 13:14:45,315 INFO    HandlerThread:28072 [interfaces.py:finish():202] Joined network monitor
+2024-01-25 13:14:45,316 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,316 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 2
+2024-01-25 13:14:45,316 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 3
+2024-01-25 13:14:45,317 DEBUG   SenderThread:28072 [sender.py:send():382] send: stats
+2024-01-25 13:14:45,317 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,318 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 3
+2024-01-25 13:14:45,318 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,318 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 3
+2024-01-25 13:14:45,318 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 4
+2024-01-25 13:14:45,319 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,319 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 4
+2024-01-25 13:14:45,319 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,319 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 4
+2024-01-25 13:14:45,320 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 5
+2024-01-25 13:14:45,320 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,320 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 5
+2024-01-25 13:14:45,321 DEBUG   SenderThread:28072 [sender.py:send():382] send: summary
+2024-01-25 13:14:45,322 INFO    SenderThread:28072 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-01-25 13:14:45,323 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,323 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 5
+2024-01-25 13:14:45,323 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 6
+2024-01-25 13:14:45,323 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,323 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 6
+2024-01-25 13:14:45,324 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,324 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 6
+2024-01-25 13:14:45,334 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: status_report
+2024-01-25 13:14:45,690 INFO    Thread-12 :28072 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\wandb-summary.json
+2024-01-25 13:14:45,771 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 7
+2024-01-25 13:14:45,772 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,772 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 7
+2024-01-25 13:14:45,773 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,773 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 7
+2024-01-25 13:14:45,773 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 8
+2024-01-25 13:14:45,773 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,773 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 8
+2024-01-25 13:14:45,774 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,774 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 8
+2024-01-25 13:14:45,774 INFO    SenderThread:28072 [job_builder.py:build():296] Attempting to build job artifact
+2024-01-25 13:14:45,775 INFO    SenderThread:28072 [job_builder.py:_get_source_type():437] no source found
+2024-01-25 13:14:45,776 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 9
+2024-01-25 13:14:45,776 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:45,776 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 9
+2024-01-25 13:14:45,776 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:45,777 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 9
+2024-01-25 13:14:45,777 INFO    SenderThread:28072 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-01-25 13:14:46,221 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: poll_exit
+2024-01-25 13:14:46,666 INFO    wandb-upload_0:28072 [upload_job.py:push():131] Uploaded file C:\Users\gowth\AppData\Local\Temp\tmpfo8am_4hwandb\2vxtw2jb-wandb-metadata.json
+2024-01-25 13:14:46,696 INFO    SenderThread:28072 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\config.yaml
+2024-01-25 13:14:46,697 INFO    SenderThread:28072 [dir_watcher.py:finish():388] scan: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files
+2024-01-25 13:14:46,698 INFO    SenderThread:28072 [dir_watcher.py:finish():402] scan save: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\conda-environment.yaml conda-environment.yaml
+2024-01-25 13:14:46,699 INFO    SenderThread:28072 [dir_watcher.py:finish():402] scan save: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\config.yaml config.yaml
+2024-01-25 13:14:46,705 INFO    SenderThread:28072 [dir_watcher.py:finish():402] scan save: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\requirements.txt requirements.txt
+2024-01-25 13:14:46,712 INFO    SenderThread:28072 [dir_watcher.py:finish():402] scan save: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\wandb-metadata.json wandb-metadata.json
+2024-01-25 13:14:46,714 INFO    SenderThread:28072 [dir_watcher.py:finish():402] scan save: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\wandb-summary.json wandb-summary.json
+2024-01-25 13:14:46,716 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 10
+2024-01-25 13:14:46,717 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: poll_exit
+2024-01-25 13:14:46,722 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:46,730 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 10
+2024-01-25 13:14:46,733 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:46,733 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 10
+2024-01-25 13:14:46,734 INFO    SenderThread:28072 [file_pusher.py:finish():175] shutting down file pusher
+2024-01-25 13:14:47,233 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: poll_exit
+2024-01-25 13:14:47,235 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: poll_exit
+2024-01-25 13:14:47,610 INFO    wandb-upload_0:28072 [upload_job.py:push():131] Uploaded file C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\conda-environment.yaml
+2024-01-25 13:14:48,255 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: poll_exit
+2024-01-25 13:14:48,255 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: poll_exit
+2024-01-25 13:14:49,263 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: poll_exit
+2024-01-25 13:14:49,264 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: poll_exit
+2024-01-25 13:14:50,261 INFO    wandb-upload_2:28072 [upload_job.py:push():131] Uploaded file C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\requirements.txt
+2024-01-25 13:14:50,262 INFO    wandb-upload_1:28072 [upload_job.py:push():131] Uploaded file C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\config.yaml
+2024-01-25 13:14:50,273 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: poll_exit
+2024-01-25 13:14:50,274 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: poll_exit
+2024-01-25 13:14:51,278 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: poll_exit
+2024-01-25 13:14:51,278 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: poll_exit
+2024-01-25 13:14:51,490 INFO    wandb-upload_3:28072 [upload_job.py:push():131] Uploaded file C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\files\wandb-summary.json
+2024-01-25 13:14:51,701 INFO    Thread-11 :28072 [sender.py:transition_state():617] send defer: 11
+2024-01-25 13:14:51,701 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:51,701 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 11
+2024-01-25 13:14:51,702 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:51,702 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 11
+2024-01-25 13:14:51,702 INFO    SenderThread:28072 [file_pusher.py:join():181] waiting for file pusher
+2024-01-25 13:14:51,703 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 12
+2024-01-25 13:14:51,703 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:51,703 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 12
+2024-01-25 13:14:51,704 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:51,704 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 12
+2024-01-25 13:14:51,704 INFO    SenderThread:28072 [file_stream.py:finish():595] file stream finish called
+2024-01-25 13:14:52,001 INFO    SenderThread:28072 [file_stream.py:finish():599] file stream finish is done
+2024-01-25 13:14:52,002 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 13
+2024-01-25 13:14:52,002 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:52,002 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 13
+2024-01-25 13:14:52,002 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:52,003 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 13
+2024-01-25 13:14:52,003 INFO    SenderThread:28072 [sender.py:transition_state():617] send defer: 14
+2024-01-25 13:14:52,004 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: defer
+2024-01-25 13:14:52,004 DEBUG   SenderThread:28072 [sender.py:send():382] send: final
+2024-01-25 13:14:52,004 INFO    HandlerThread:28072 [handler.py:handle_request_defer():172] handle defer: 14
+2024-01-25 13:14:52,004 DEBUG   SenderThread:28072 [sender.py:send():382] send: footer
+2024-01-25 13:14:52,005 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: defer
+2024-01-25 13:14:52,005 INFO    SenderThread:28072 [sender.py:send_request_defer():613] handle sender defer: 14
+2024-01-25 13:14:52,006 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: poll_exit
+2024-01-25 13:14:52,007 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: poll_exit
+2024-01-25 13:14:52,007 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: server_info
+2024-01-25 13:14:52,007 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: poll_exit
+2024-01-25 13:14:52,007 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: get_summary
+2024-01-25 13:14:52,008 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: poll_exit
+2024-01-25 13:14:52,009 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: sampled_history
+2024-01-25 13:14:52,009 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: server_info
+2024-01-25 13:14:52,010 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-25 13:14:52,017 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: job_info
+2024-01-25 13:14:52,314 DEBUG   SenderThread:28072 [sender.py:send_request():409] send_request: job_info
+2024-01-25 13:14:52,315 INFO    MainThread:28072 [wandb_run.py:_footer_history_summary_info():3857] rendering history
+2024-01-25 13:14:52,315 INFO    MainThread:28072 [wandb_run.py:_footer_history_summary_info():3889] rendering summary
+2024-01-25 13:14:52,318 INFO    MainThread:28072 [wandb_run.py:_footer_sync_info():3816] logging synced files
+2024-01-25 13:14:52,320 DEBUG   HandlerThread:28072 [handler.py:handle_request():146] handle_request: shutdown
+2024-01-25 13:14:52,320 INFO    HandlerThread:28072 [handler.py:finish():869] shutting down handler
+2024-01-25 13:14:53,022 INFO    WriterThread:28072 [datastore.py:close():296] close: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_131429-fci2v58d\run-fci2v58d.wandb
+2024-01-25 13:14:53,323 INFO    SenderThread:28072 [sender.py:finish():1572] shutting down sender
+2024-01-25 13:14:53,325 INFO    SenderThread:28072 [file_pusher.py:finish():175] shutting down file pusher
+2024-01-25 13:14:53,327 INFO    SenderThread:28072 [file_pusher.py:join():181] waiting for file pusher

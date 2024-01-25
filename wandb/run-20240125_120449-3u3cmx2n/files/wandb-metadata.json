@@ -1,0 +1,53 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.8.18",
+    "heartbeatAt": "2024-01-25T06:34:51.875791",
+    "startedAt": "2024-01-25T06:34:49.469268",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "d:/praxis/Term 2/MLOP/Abalone_deploy/update.py",
+    "codePathLocal": "update.py",
+    "codePath": "update.py",
+    "git": {
+        "remote": "https://github.com/kagitalamoazima/Abalone_deploy.git",
+        "commit": "65919bc2d18fc5bf306f335b62f65e2b33d30cea"
+    },
+    "email": "kagitalamoazima@gmail.com",
+    "root": "D:/praxis/Term 2/MLOP/Abalone_deploy",
+    "host": "LAPTOP-S0VQUMT8",
+    "username": "moazi",
+    "executable": "D:\\Anaconda\\Conda\\envs\\Deploy_project\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 3000.0,
+        "min": 0.0,
+        "max": 3000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3000.0,
+            "min": 0.0,
+            "max": 3000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 931.4970664978027,
+            "used": 346.6426124572754
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 1650",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1650",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 7.372379302978516
+    }
+}

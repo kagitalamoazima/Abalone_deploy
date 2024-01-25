@@ -4,18 +4,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler,  OneHotEncoder
+from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import AdaBoostRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error
-import mlflow
-import mlflow.sklearn
-import pickle
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
-import os
+import wandb
+
+# Hardcoded API key (replace this with your actual API key)
+
+wandb_api_key = 'cd79fc148a777d272c1b3834db4e8513af8d1f66'
+wandb.login(key=wandb_api_key)
 
 df = pd.read_csv("abalonedata.csv")
 
@@ -130,7 +132,7 @@ if selected_model == "Decision Tree":
 elif selected_model == "Linear Regression":
     model = LinearRegression()
 
-elif selected_model == "AdaBoost":
+elif selected_model == "Gradient Boosting":
     Hyper_parameter_tuning = st.sidebar.slider("select value for the Tuning for max depth",min_value=3,max_value=10,value=2)
     n_estimator = st.sidebar.slider("select n_estimator for Tuning", min_value=50, max_value=150, value=50)
     learning_rate = st.sidebar.slider("Learning Rate", min_value=0.01, max_value=1.0, value=0.1)
@@ -138,7 +140,7 @@ elif selected_model == "AdaBoost":
     st.write(f"Number of Estimators: {n_estimator}")
     st.write(f"Learning Rate: {learning_rate}")
     base_model = DecisionTreeRegressor(max_depth=Hyper_parameter_tuning)
-    model = AdaBoostRegressor(base_model, n_estimators=n_estimator, learning_rate=learning_rate, random_state=42)
+    model = GradientBoostingRegressor(base_model, n_estimators=n_estimator, learning_rate=learning_rate, random_state=42)
 
 from sklearn.pipeline import make_pipeline
 
@@ -148,6 +150,9 @@ model_to_fit = make_pipeline(preprocessor,model)
 st.subheader("Predicting the Age")
 
 model_to_fit.fit(X_train, y_train)
+prediction = model_to_fit.predict(X_train)
+st.write("MSE:", mean_squared_error(y_train, prediction))
+
 prediction = model_to_fit.predict(X_test)
 st.write("MSE:", mean_squared_error(y_test, prediction))
 
@@ -205,73 +210,76 @@ st.write({feature1: value1, feature2: value2, feature3: value3, feature4: value4
 st.write("Predicted Age:")
 st.write(predicted_age[0])
 
-# Get the current working directory
-cwd = os.getcwd()
+wandb.init(project='Abalone', name='Track_runs')
 
-# Create a subdirectory for MLflow
-mlflow_dir = os.path.join(cwd, "mlruns")
+ml = [DecisionTreeRegressor(), GradientBoostingRegressor(), LinearRegression()]
 
-import os
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.metrics import mean_squared_error
+import json
 
-# Get the current working directory
-cwd = os.getcwd()
-
-# Create a subdirectory for MLflow
-mlflow_dir = os.path.join(cwd, "mlruns")
-
-# Check if the directory exists and is accessible
-if os.access(mlflow_dir, os.R_OK):
-    print(f"The directory {mlflow_dir} exists and is accessible.")
-else:
-    print(f"The directory {mlflow_dir} does not exist or is not accessible.")
-    # Create the directory if it doesn't exist
-    os.makedirs(mlflow_dir, exist_ok=True)
-
-# Set the tracking URI to the MLflow directory
-mlflow.set_tracking_uri('file://' + mlflow_dir)
-
-# Set the tracking URI to the local tracking server
-mlflow.set_tracking_uri('http://localhost:5000')
-
-# Define the experiment name
-experiment_name = "Abalone_experiment"
-
-# Check if the experiment exists
-experiment = mlflow.get_experiment_by_name(experiment_name)
-
-# Check if the experiment exists
-experiment = mlflow.get_experiment_by_name(experiment_name)
-
-
-
-if experiment is None:
-    # If the experiment does not exist, create it
-    mlflow.create_experiment(experiment_name)
-else:
-    # Set the experiment
-    mlflow.set_experiment(experiment_name)
-
-# Set the experiment
-mlflow.set_experiment(experiment_name)
-
-# Start a new MLflow run
-ml = [DecisionTreeRegressor(), AdaBoostRegressor(), LinearRegression()]
 for model in ml:
-    with mlflow.start_run(run_name=f"Abalone-{model}"):
-        # Use the preprocessed pipeline for training
-        model_to_fit = make_pipeline(preprocessor, model)
-        model_to_fit.fit(X_train, y_train)
+    model_to_fit = make_pipeline(preprocessor, model)
+    model_to_fit.fit(X_train, y_train)
 
-        # Make predictions
-        predictions = model_to_fit.predict(X_test)
+    train_predictions = model_to_fit.predict(X_train)
+    test_predictions = model_to_fit.predict(X_test)
 
-        # Calculate metrics
-        mse = mean_squared_error(y_test, predictions)
+    # Log the name of the model as a string
+    #wandb.log({"model_name": type(model).__name__})
 
-        # Log model
-        mlflow.sklearn.log_model(model_to_fit, "model")
+    # Log train MSE
+    wandb.log({"train_mse": mean_squared_error(y_train, train_predictions)})
 
-        # Log metrics
-        mlflow.log_metric("mse", mse)
+    # Log test MSE
+    wandb.log({"test_mse": mean_squared_error(y_test, test_predictions)})
+
+    import wandb
+
+# Initialize Weights & Biases run
+wandb.init(project='Abalone', name='Track_runs')
+
+# List of models
+ml = [DecisionTreeRegressor(), GradientBoostingRegressor(), LinearRegression()]
+
+# Dictionary to store MSE for each model
+mse_dict = {}
+
+# Iterate over models
+for model in ml:
+    # Create a pipeline with preprocessor and the current model
+    model_to_fit = make_pipeline(preprocessor, model)
+    
+    # Fit the model on training data
+    model_to_fit.fit(X_train, y_train)
+
+    # Predictions on training and test sets
+    train_predictions = model_to_fit.predict(X_train)
+    test_predictions = model_to_fit.predict(X_test)
+
+    # Calculate MSE for training and test sets
+    train_mse = mean_squared_error(y_train, train_predictions)
+    test_mse = mean_squared_error(y_test, test_predictions)
+
+    # Log metrics to Weights & Biases
+    wandb.log({"model_name": type(model).__name__})
+    wandb.log({"train_mse": train_mse})
+    wandb.log({"test_mse": test_mse})
+
+    # Store MSE in the dictionary
+    mse_dict[type(model).__name__] = test_mse
+
+# Find the model with the lowest test MSE
+best_model_name = min(mse_dict, key=mse_dict.get)
+best_model_mse = mse_dict[best_model_name]
+
+# Display the best model and its test MSE
+st.subheader("Best Model:")
+st.write(f"Model: {best_model_name}")
+st.write(f"Test MSE: {best_model_mse}")
+
+# Optionally, you can save the best model for future use
+best_model = next(model for model in ml if type(model).__name__ == best_model_name)
+best_model_pipeline = make_pipeline(preprocessor, best_model)
+best_model_pipeline.fit(X_train, y_train)
+
+# Now you can use 'best_model_pipeline' for predictions on new data.
+
