@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/534731941660871226/c0a3eb4b1dc14cb9badfb4105483f2b4/artifacts
+end_time: 1705500182381
+entry_point_name: ''
+experiment_id: '534731941660871226'
+lifecycle_stage: active
+run_id: c0a3eb4b1dc14cb9badfb4105483f2b4
+run_name: Abalone-AdaBoostRegressor()
+run_uuid: c0a3eb4b1dc14cb9badfb4105483f2b4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1705500175164
+status: 3
+tags: []
+user_id: gowth

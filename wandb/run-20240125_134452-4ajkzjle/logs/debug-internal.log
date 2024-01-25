@@ -1,0 +1,9 @@
+2024-01-25 13:44:52,998 INFO    StreamThr :10024 [internal.py:wandb_internal():86] W&B internal server running at pid: 10024, started at: 2024-01-25 13:44:52.996182
+2024-01-25 13:44:53,002 DEBUG   HandlerThread:10024 [handler.py:handle_request():146] handle_request: status
+2024-01-25 13:44:53,011 INFO    WriterThread:10024 [datastore.py:open_for_write():87] open: C:\Users\gowth\Documents\GitHub\Abalone_deploy\wandb\run-20240125_134452-4ajkzjle\run-4ajkzjle.wandb
+2024-01-25 13:44:53,014 DEBUG   SenderThread:10024 [sender.py:send():382] send: header
+2024-01-25 13:44:53,014 DEBUG   SenderThread:10024 [sender.py:send():382] send: run
+2024-01-25 13:44:58,042 DEBUG   HandlerThread:10024 [handler.py:handle_request():146] handle_request: keepalive
+2024-01-25 13:45:03,080 DEBUG   HandlerThread:10024 [handler.py:handle_request():146] handle_request: keepalive
+2024-01-25 13:45:08,113 DEBUG   HandlerThread:10024 [handler.py:handle_request():146] handle_request: keepalive
+2024-01-25 13:45:13,165 DEBUG   HandlerThread:10024 [handler.py:handle_request():146] handle_request: keepalive

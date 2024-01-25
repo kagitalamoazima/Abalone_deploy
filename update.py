@@ -19,6 +19,9 @@ import wandb
 wandb_api_key = 'cd79fc148a777d272c1b3834db4e8513af8d1f66'
 wandb.login(key=wandb_api_key)
 
+import os
+
+
 df = pd.read_csv("abalonedata.csv")
 
 st.subheader("Dataset Preview:")
@@ -150,6 +153,7 @@ model_to_fit = make_pipeline(preprocessor,model)
 st.subheader("Predicting the Age")
 
 model_to_fit.fit(X_train, y_train)
+
 prediction = model_to_fit.predict(X_train)
 st.write("MSE:", mean_squared_error(y_train, prediction))
 
@@ -215,6 +219,7 @@ wandb.init(project='Abalone', name='Track_runs')
 
 # List of models
 ml = [DecisionTreeRegressor(), GradientBoostingRegressor(), LinearRegression()]
+
 
 # Dictionary to store MSE for each model
 mse_dict = {}
